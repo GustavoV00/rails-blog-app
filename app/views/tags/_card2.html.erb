@@ -1,0 +1,23 @@
+<div class="row m-4 d-flex justify-content-center">
+  <div class="col-sm-6">
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title text-center">Tag: <%= @tag.tag_name %></h5>
+        <h5 class="card-title text-center">Id: <%= @tag.id %></h5>
+        <div class="d-flex justify-content-evenly">
+            <%= link_to "Show tag", @tag, class: "btn btn-primary" %>
+
+            <% if current_user %>
+              <% if current_user.email == "admin@admin" %>
+                <%= link_to "Edit tag", edit_tag_path(@tag), class: "btn btn-primary" %>
+                <%= button_to "Destroy tag", @tag, method: :delete, class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <%= link_to "New tag", new_tag_path(@tag), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

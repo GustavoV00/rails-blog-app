@@ -1,0 +1,10 @@
+<%= render "layouts/navbar" %>
+
+<%= render "card2" %>
+
+<hr>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "Edit this profile", edit_profile_path(@profile), class: "btn btn-primary" %> |
+  <%= link_to "Back to profiles", profiles_path, class: "btn btn-primary" %>
+</div>

@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-center">
+  <%= form_with(model: tag_article) do |form| %>
+    <% if tag_article.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(tag_article.errors.count, "error") %> prohibited this tag_article from being saved:</h2>
+
+        <ul>
+          <% tag_article.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <span style="opacity: 0.5">The article field is the article id</span>
+    <div class="form-outline mb-2">
+      <%= form.label :article_id, style: "display: block", class: "form-label" %>
+      <%= form.text_field :article_id, class: "form-control" %>
+    </div>
+
+    <span style="opacity: 0.5">The tag field is the tag id</span>
+    <div class="form-outline mb-2">
+      <%= form.label :tag_id, style: "display: block", class: "form-label" %>
+      <%= form.text_field :tag_id, class: "form-control" %>
+    </div>
+
+    <div class="row mb-4">
+      <div class="d-flex justify-content-center">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

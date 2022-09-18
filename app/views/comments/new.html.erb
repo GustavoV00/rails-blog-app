@@ -1,0 +1,10 @@
+<%= render "layouts/navbar" %>
+<h1 class="text-center">New comment</h1>
+
+<%= render "form", comment: @comment %>
+
+<hr>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "Back to comments", comments_path, class: "btn btn-primary" %>
+</div>

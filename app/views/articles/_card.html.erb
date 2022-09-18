@@ -1,0 +1,26 @@
+
+  <div class="row m-4">
+    <% @articles.each do |article| %>
+      <% if current_user == article.user || current_user.admin %>
+          <div class="col-sm-6">
+            <div class="card mt-4">
+              <div class="card-body">
+                <h5 class="card-title text-center">article: <%= article.title %></h5>
+                <p class="card-text text-center">Description: <%= article.descri %></p>
+                <p class="card-text text-center">Owner: <%= article.user.email %></p>
+                <div class="d-flex justify-content-evenly">
+                    <%= link_to "Show article", article, class: "btn btn-primary" %>
+                  <% if current_user.admin %>
+                    <%= link_to "Edit article", edit_article_path(article), class: "btn btn-primary" %>
+                    <%= button_to "Destroy article", article, method: :delete, class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+    <div class="mt-3">
+        <%= link_to "New article", new_article_path(@article), class: "btn btn-primary" %>
+    </div>
+  </div>

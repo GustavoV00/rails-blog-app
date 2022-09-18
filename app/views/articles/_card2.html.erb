@@ -1,0 +1,33 @@
+<div class="row m-4 d-flex justify-content-center">
+  <div class="col-sm-6">
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title text-center">Title: <%= @article.title %></h5>
+        <h5 class="card-title text-center">Descri: <%= @article.descri %></h5>
+
+        <div class="card-title text-center">
+          <p>
+            <strong>Body:</strong> <%= @article.body %>
+          </p>
+        </div>
+
+        <h5 class="card-title text-center">Article id: <%= @article.id%></h5>
+
+
+        <div class="d-flex justify-content-evenly">
+            <%= link_to "Show article", @article, class: "btn btn-primary" %>
+            
+            <% if current_user %>
+              <% if current_user.email == "admin@admin" %>
+                <%= link_to "Edit article", edit_article_path(@article), class: "btn btn-primary" %>
+                <%= button_to "Destroy article", @article, method: :delete, class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <%= link_to "New article", new_article_path(@article), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

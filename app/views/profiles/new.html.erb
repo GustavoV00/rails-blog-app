@@ -1,0 +1,11 @@
+<%= render "layouts/navbar" %>
+
+<h1 class="text-center">New profile</h1>
+
+<%= render "form", profile: @profile %>
+
+<hr>
+
+<div class="text-center">
+  <%= link_to "Back to profiles", profiles_path, class: "btn btn-primary" %>
+</div>

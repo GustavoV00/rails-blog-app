@@ -1,0 +1,24 @@
+<div class="row m-4 d-flex justify-content-center">
+  <div class="col-sm-6">
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title text-center">Owner: <%= @profile.user.email %></h5>
+        <h5 class="card-title text-center">FirstName: <%= @profile.first_name %></h5>
+        <h5 class="card-title text-center">LastName: <%= @profile.last_name %></h5>
+        <h5 class="card-title text-center">Age: <%= @profile.age %></h5>
+        <h5 class="card-title text-center">Interests: <%= @profile.interests %></h5>
+        <h5 class="card-title text-center">About: <%= @profile.about %></h5>
+        <div class="d-flex justify-content-evenly">
+          <%= link_to "Show profile", @profile, class: "btn btn-primary" %>
+          <% if current_user.email == "admin@admin" %>
+            <%= link_to "Edit profile", edit_profile_path(@profile), class: "btn btn-primary" %>
+            <%= button_to "Destroy profile", @profile, method: :delete, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <%= link_to "New profile", new_profile_path(@profile), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

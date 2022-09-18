@@ -1,0 +1,15 @@
+
+<% @articles.each do |article| %>
+  <div class="card m-4">
+    <div class="card-header">
+      <strong>Title:</strong> <%= article.title %> 
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">
+        Owner: <%= link_to "#{article.user.email}", article %>
+      </h5>
+      <p class="card-text">Description: <%= article.descri %></p>
+      <%= link_to "Read full article", article, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<%= render "layouts/navbar" %>
+<h1 class="text-center">New tag article</h1>
+
+<%= render "form", tag_article: @tag_article %>
+
+<hr>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "Back to tag articles", tag_articles_path, class: "btn btn-primary" %>
+</div>

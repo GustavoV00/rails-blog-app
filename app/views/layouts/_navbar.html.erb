@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/users/edit">User</a>
+        <a class="nav-link" href="/profiles">Profile</a>
+        <a class="nav-link" href="/articles">Articles</a>
+        <a class="nav-link" href="/comments">Comments</a>
+        <a class="nav-link" href="/tags">Tags</a>
+        <a class="nav-link" href="/tag_articles">Tags_Articles</a>
+        <% if current_user %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link text-primary" %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link text-white" %>
+          <%= link_to "Sign in", new_user_session_path, class: "nav-link text-white" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
