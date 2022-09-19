@@ -4,26 +4,28 @@
 
 <div class="row m-4">
   <% @comments.each do |comment| %>
-    <% if current_user == comment.user || current_user.admin %>
-      <div class="col-sm-6">
-        <div class="card mt-4">
-          <div class="card-body">
-            <h5 class="card-title text-center">Comment: <%= comment.comment %></h5>
-            <h5 class="card-title text-center">Owner: <%= comment.user.email %></h5>
-            <div class="d-flex justify-content-evenly">
-              <%= link_to "Show comment", comment, class: "btn btn-primary" %>
-  
-              <% if current_user %>
-                <% if current_user.email == "admin@admin" %>
-                  <%= link_to "Edit comment", edit_comment_path(comment), class: "btn btn-primary" %>
-                  <%= button_to "Destroy comment", comment, method: :delete, class: "btn btn-primary" %>
+    <% if current_user %>
+      <% if current_user == comment.user || current_user.admin %>
+        <div class="col-sm-6">
+          <div class="card mt-4">
+            <div class="card-body">
+              <h5 class="card-title text-center">Comment: <%= comment.comment %></h5>
+              <h5 class="card-title text-center">Owner: <%= comment.user.email %></h5>
+              <div class="d-flex justify-content-evenly">
+                <%= link_to "Show comment", comment, class: "btn btn-primary" %>
+    
+                <% if current_user %>
+                  <% if current_user.email == "admin@admin" %>
+                    <%= link_to "Edit comment", edit_comment_path(comment), class: "btn btn-primary" %>
+                    <%= button_to "Destroy comment", comment, method: :delete, class: "btn btn-primary" %>
+                  <% end %>
                 <% end %>
-              <% end %>
-  
+    
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
   <div class="mt-3">

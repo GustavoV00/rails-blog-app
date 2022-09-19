@@ -9,9 +9,185 @@
   <body>
 
     <%= render "layouts/navbar" %>
-    <h1 class="text-center">Home - All articles</h1>
+    <h1 class="text-center">Home - README</h1>
 
-    <%= render "card", locals: { authors: @authors } %>
+    <div class="m-4">
+      <ul>
+        <li>Gustavo Valente Nunes</li>
+        <li>GRR: 20182557</li>
+        <li>Login: gvn18</li>
+      </ul>
 
+      <p class="text-center">
+        O projeto desenvolvido foi um mini-blog, com um usuário podendo escrever um artigo, e um comentário. Qualquer usuário pode criar uma tag e um TagArticle que é uma tag 
+        associada a um artigo e vice-e-versa. E apenas o usuário adm pode editar e deletar qualquer coisa.
+      </p>
+
+      <ul>
+        <li>
+          Modelos:
+          <ul>
+            <li>
+            User
+              <ul>
+                <li>Criado pelo devise</li>
+              </ul>
+            </li>
+            <li>
+              Profile
+              <ul>
+                <li>
+                  possui: age:integer, first_name:string, last_name:string, interests:string, about:text, user:references
+                </li>
+              </ul>
+            </li>
+            <li>
+              Artigo 
+              <ul>
+                <li>
+                  possui: title:string, descri:string, body:text, user:references
+                </li>
+              </ul>
+            </li>
+            <li>
+              Comentario 
+              <ul>
+                <li>
+                  possui: comment:string, user:references, article:references
+                </li>
+              </ul>
+            </li>
+            <li>
+              Tag 
+              <ul>
+                <li>
+                  possui: tag_name:string
+                </li>
+              </ul>
+            </li>
+            <li>
+              TagArticle 
+              <ul>
+                <li>
+                  possui: tag:references, article:references
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Associações
+          <ul>
+            <li>Artigo 1:N Comentários</li>
+            <li>artigo N:N Tags (Forma o TagArticle)</li>
+            <li>user 1:1 profile</li>
+            <li>user 1:N artigos</li>
+            <li>user 1:N Comentários</li>
+          </ul>
+        </li>
+        <li>
+          Diretórios
+          <ul>
+            <li>app/views</li>
+            <ul>
+              <li>
+                articles: Indica o crud que referente aos artigos.
+              </li>
+              <li>
+                comments: Indica o crud que referente aos comentários.
+              </li>
+              <li>
+                tag: Indica o crud que referente as tags.
+              </li>
+              <li>
+                tag_articles: Indica o crud que referente as tags e artigos com associações.
+              </li>
+              <li>
+                devise: Folder criado com a utilização do devise.
+              </li>
+            </ul>
+            <li>app/controllers</li>
+            <ul>
+              <li>Localização dos controllers</li>
+            </ul>
+          </ul>
+        </li>
+        <li>
+          Como executar
+          <ul>
+            <li>Foi utilizado a versão 3.0.0 do ruby</li>
+            <li>rails db:migrate</li>
+            <li>rails db:reset</li>
+            <li>rails db:seed (Caso queira popular o banco de dados. Demora +- 3min)</li>
+            <li>rails s -p 3557 -b 0.0.0.0</li>
+            <li>abrir no http://localhost:3557</li>
+          </ul>
+        </li>
+        <li>
+          Como funciona
+          <ul>
+            <li>
+              Temos a página home que apenas carrega todos os artigos.
+            </li>
+            <li>
+              Temos a página artigo que mostra os artigos do usuário que está logado.
+            </li>
+            <li>
+              Temos a página comentario que mostra os comentarios do usuário que está logado.
+            </li>
+            <li>
+              Temos a página tag que mostra todas as tags.
+            </li>
+            <li>
+              Temos a página TagArticle que mostra quais artigos e tags estão associadas.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Nota
+          <ul>
+            <li>
+              Apenas o usuário admin pode editar ou deletar as coisas.
+            </li>
+            <li>
+              Eles são gerados após db:seed
+            </li>
+          </ul>
+        </li>
+        <li>
+          Users
+          <ul>
+            <li>
+              admin:
+              <ul>
+                <li>email: admin@admin</li>
+                <li>password: admin123</li>
+              </ul>
+            </li>
+            <li>
+              user1:
+              <ul>
+                <li>email: user1@user1</li>
+                <li>password: user123</li>
+              </ul>
+            </li>
+            <li>
+              user2:
+              <ul>
+                <li>email: user2@user2</li>
+                <li>password: user123</li>
+              </ul>
+            </li>
+            <li>
+              user3:
+              <ul>
+                <li>email: user3@user3</li>
+                <li>password: user123</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
