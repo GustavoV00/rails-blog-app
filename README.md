@@ -1,6 +1,5 @@
 Gustavo Valente Nunes
-GRR: 20182557
-login: gvn18
+
 
 O projeto desenvolvido foi um mini-blog, com um usuário podendo escrever um artigo, e um comentário. Qualquer usuário pode criar uma tag e um TagArticle que é uma tag 
 associada a um artigo e vice-e-versa. E apenas o usuário adm pode editar e deletar qualquer coisa.
